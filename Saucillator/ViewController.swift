@@ -7,30 +7,57 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    // STEP 1 : Set up an instance variable for the instrument
     let instrument = AKInstrument()
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        
-        // STEP 2 : Define the instrument as a simple oscillator
-        let oscillator = AKOscillator()
-        instrument.setAudioOutput(oscillator)
+    let oscillator = AKOscillator()
+    let freqProp = AKInstrumentProperty()
+    let ampProp = AKInstrumentProperty()
 
-        // STEP 3 : Add the instrument to the orchestra and start the orchestra
-        AKOrchestra.addInstrument(instrument)
+    // Configurables are constant for now
+    // HEYO! fixme
+    let gridSize = 12
+    let baseFreq = 440.0
+
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        instrument.play()
+        for touch in touches {
+            handleTouch(touch)
+        }
     }
 
-    // STEP 4 : React to a button press on the Storyboard UI by
-    //          playing or stopping the instrument and updating the button text.
-    @IBAction func toggleSound(sender: UIButton){
-        if !(sender.titleLabel?.text == "Stop") {
-            instrument.play()
-            sender.setTitle("Stop", forState: UIControlState.Normal)
-        } else {
-            instrument.stop()
-            sender.setTitle("Play Sine Wave at 440HZ", forState: UIControlState.Normal)
+    override func touchesMoved(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        for touch in touches {
+            handleTouch(touch)
         }
+    }
+
+    override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        instrument.stop()
+    }
+
+    func handleTouch(touch: UITouch) {
+        let location = touch.locationInView(self.view)
+        setAmplitude(location.x)
+        setFrequency(location.y)
+    }
+
+    func setFrequency(currentY: CGFloat) {
+        let offset = Double(self.view.bounds.height - currentY) / Double(self.view.bounds.height) * Double(gridSize)
+        let frequency = Theory.getFrequencyForScaleNote(Theory.chromaticScale, baseFreq: baseFreq, offset: NSInteger(offset))
+        freqProp.value = Float(frequency)
+    }
+    
+    func setAmplitude(currentX: CGFloat) {
+        let amplitude = Double(currentX) / Double(self.view.bounds.width)
+        ampProp.value = Float(amplitude)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        oscillator.frequency = freqProp
+        oscillator.amplitude = ampProp
+
+        instrument.setAudioOutput(oscillator)
+        AKOrchestra.addInstrument(instrument)
     }
 }

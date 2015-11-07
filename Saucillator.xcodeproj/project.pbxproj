@@ -17,6 +17,7 @@
 		D8E246981BED888C00D5B2F1 /* CsoundLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8E246931BED876600D5B2F1 /* CsoundLib.framework */; };
 		D8E246991BED888C00D5B2F1 /* CsoundLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D8E246931BED876600D5B2F1 /* CsoundLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D8E2469B1BED88D200D5B2F1 /* AudioKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2469A1BED88D200D5B2F1 /* AudioKit.swift */; };
+		D8E2469F1BED941000D5B2F1 /* Theory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2469E1BED941000D5B2F1 /* Theory.swift */; };
 		E4364C641A9A6FB700C0B544 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364C631A9A6FB700C0B544 /* AppDelegate.swift */; };
 		E4364C661A9A6FB700C0B544 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4364C651A9A6FB700C0B544 /* ViewController.swift */; };
 		E4364C691A9A6FB700C0B544 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4364C671A9A6FB700C0B544 /* Main.storyboard */; };
@@ -85,6 +86,7 @@
 		D8E246921BED876600D5B2F1 /* libsndfile.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libsndfile.framework; path = ../../AudioKit/AudioKit/Platforms/iOS/libsndfile.framework; sourceTree = "<group>"; };
 		D8E246931BED876600D5B2F1 /* CsoundLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CsoundLib.framework; path = ../../AudioKit/AudioKit/Platforms/iOS/CsoundLib.framework; sourceTree = "<group>"; };
 		D8E2469A1BED88D200D5B2F1 /* AudioKit.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AudioKit.swift; path = ../../AudioKit/AudioKit/Platforms/Swift/AudioKit.swift; sourceTree = "<group>"; };
+		D8E2469E1BED941000D5B2F1 /* Theory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theory.swift; sourceTree = "<group>"; };
 		E4364C5E1A9A6FB700C0B544 /* Saucillator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Saucillator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4364C621A9A6FB700C0B544 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4364C631A9A6FB700C0B544 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -150,6 +152,7 @@
 			isa = PBXGroup;
 			children = (
 				E4364C651A9A6FB700C0B544 /* ViewController.swift */,
+				D8E2469E1BED941000D5B2F1 /* Theory.swift */,
 				E4364C671A9A6FB700C0B544 /* Main.storyboard */,
 				E4364C611A9A6FB700C0B544 /* Supporting Files */,
 			);
@@ -313,6 +316,7 @@
 			files = (
 				D8E2469B1BED88D200D5B2F1 /* AudioKit.swift in Sources */,
 				E4364C661A9A6FB700C0B544 /* ViewController.swift in Sources */,
+				D8E2469F1BED941000D5B2F1 /* Theory.swift in Sources */,
 				E4364C641A9A6FB700C0B544 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
