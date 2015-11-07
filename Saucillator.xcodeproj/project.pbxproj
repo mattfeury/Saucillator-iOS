@@ -156,7 +156,6 @@
 				E4364C671A9A6FB700C0B544 /* Main.storyboard */,
 				E4364C611A9A6FB700C0B544 /* Supporting Files */,
 			);
-			name = Saucillator;
 			path = Saucillator;
 			sourceTree = "<group>";
 		};
